@@ -10,3 +10,5 @@ export const SimulatorResultSection = styled(DefaultSection)`
         background-color: ${theme.colors.neutral.high.medium};
     `}
 `;
+
+export const InstallmentsSection = styled(DefaultSection)``;

@@ -6,24 +6,29 @@ export interface GetSolarFeasibilityProps {
 
 export interface RawSolarFeasibilityData {
   co2: number
-  potencial: string
   economia: number
-  potencyCC: number
-  valor_instalacao: number
-  qtdeInversores: number
+  integradores_regiao: number
   parcelamento: Array<{
     parcelas: number
-    taxa_minima: number
     taxa_maxima: number
-    valor_minimo: number
+    taxa_minina: number
     valor_maximo: number
+    valor_minimo: number
   }>
+  potencial: string
+  potencyCC: number
+  qtdeInversores: number
+  valor_instalacao: number
 }
 
 export interface ParsedSolarFeasibilityData {
   carbonDioxide: number
-  potential: string
   economy: number
+  installationValue: number
+  integrators: number
+  inverters: number
+  potencyCC: number
+  potential: string
   installments: Array<{
     installment: number
     minTax: number
@@ -31,7 +36,4 @@ export interface ParsedSolarFeasibilityData {
     minValue: number
     maxValue: number
   }>
-  potencyCC: number
-  installationValue: number
-  inverters: number
 }

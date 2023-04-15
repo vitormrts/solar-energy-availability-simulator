@@ -29,7 +29,7 @@ const defaultTheme = {
         light: '',
         dark: '',
         darker: '#1F2044',
-        darkest: '#181936'
+        darkest: ''
       },
       secondary: {
         pure: '#FAB805',
