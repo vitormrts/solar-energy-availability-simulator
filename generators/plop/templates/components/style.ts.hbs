@@ -1,0 +1,9 @@
+import styled, { css } from 'styled-components';
+
+export const Container = styled.div``;
+
+export const Title = styled.h2`
+  ${({ theme }) => css`
+    color: ${theme.colors.brand.primary.pure};
+  `}
+`;

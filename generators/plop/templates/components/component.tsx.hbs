@@ -1,0 +1,11 @@
+import React from 'react';
+import { type {{pascalCase name}}Props } from './{{pascalCase name}}.types';
+import * as S from './{{pascalCase name}}.style';
+
+const {{pascalCase name}}: React.FC<{{pascalCase name}}Props> = ({ title = 'Default title', testId = '{{dashCase name}}' }: {{pascalCase name}}Props) => (
+  <S.Container data-testid={testId}>
+    <S.Title>{title}</S.Title>
+  </S.Container>
+);
+
+export default {{pascalCase name}};
