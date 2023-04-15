@@ -87,35 +87,11 @@ const defaultTheme = {
     special: {}
   },
   font: {
-    sizes: {
-      quarck: '12px',
-      nano: '14px',
-      xxxs: '16px',
-      xxs: '18px',
-      xs: '20px',
-      sm: '22px',
-      md: '24px',
-      lg: '26px',
-      xlg: '28px',
-      xxlg: '30px',
-      xxxlg: '36px',
-      xxxxlg: '40px',
-      xxxxxlg: '46px',
-      huge: '50px',
-      giant: '76px'
-    },
     weights: {
       bold: 700,
       medium: 500,
       regular: 400
     }
-  },
-  lineHeights: {
-    default: '100%',
-    xs: '110%',
-    sm: '120%',
-    md: '130%',
-    lg: '150%'
   },
   transitions: {
     durations: {
