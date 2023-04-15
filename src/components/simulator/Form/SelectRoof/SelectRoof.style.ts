@@ -1,10 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CardsWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 64px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 64px;
+    @media (max-width: ${theme.breakpoints.lg}) {
+      gap: 40px;
+    }
+    @media (max-width: ${theme.breakpoints.md}) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  `}
 `;
 
 export const CardAdapter = styled.div``;

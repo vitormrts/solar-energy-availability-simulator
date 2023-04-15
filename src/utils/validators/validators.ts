@@ -3,7 +3,7 @@ const zipCode = (value: string): boolean => {
   return regex.test(value);
 };
 
-const required = (value: string): boolean => {
+const empty = (value: string): boolean => {
   if (!value) return true;
   const formattedValue = value.trim();
   if (formattedValue.length <= 0 || formattedValue === '') return true;
@@ -11,7 +11,7 @@ const required = (value: string): boolean => {
 };
 
 const validation = {
-  required,
+  empty,
   zipCode
 };
 

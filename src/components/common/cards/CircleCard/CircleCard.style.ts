@@ -24,7 +24,8 @@ export const ImageAdapter = styled.div<{ $selected: boolean }>`
 export const Image = styled(DefaultImage)`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius.circular};
-    width: 100%;
+    width: 76px;
+    height: 76px;
   `}
 `;
 
@@ -33,7 +34,7 @@ export const Label = styled.p`
     color: ${theme.colors.neutral.low.dark};
     font-size: 13px;
     line-height: 18px;
-    font-weight: ${theme.font.weights.bold};
+    font-weight: ${theme.font.weights.medium};
     text-align: center;
   `}
 `;

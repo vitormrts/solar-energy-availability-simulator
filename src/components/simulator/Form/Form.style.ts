@@ -12,15 +12,14 @@ export const Form = styled.form`
 `;
 
 export const InputGroup = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    @media (max-width: ${theme.breakpoints.lg}) {
+      flex-direction: column;
+    }
+  `}
 `;
 
 export const InputAdapter = styled.div``;
-
-export const Title = styled.h2`
-  ${({ theme }) => css`
-    color: ${theme.colors.brand.primary.pure};
-  `}
-`;

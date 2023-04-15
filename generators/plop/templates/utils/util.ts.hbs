@@ -1,6 +1,6 @@
-import {{pascalCase name}}Props from './{{camelCase name}}.types';
+import type {{pascalCase name}}Props from './{{camelCase name}}.types';
 
-const {{camelCase name}} = ({ value = 'Default value' }: {{pascalCase name}}Props) => {
+const {{camelCase name}} = ({ value = 'Default value' }: {{pascalCase name}}Props): string => {
   return value;
 };
 

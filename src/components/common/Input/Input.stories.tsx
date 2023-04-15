@@ -14,7 +14,9 @@ const Template = {
     error: '',
     success: '',
     disabled: false,
-    name: 'input'
+    name: 'input',
+    infoText: '',
+    value: ''
   }
 } satisfies Story;
 

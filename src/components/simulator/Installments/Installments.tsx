@@ -26,7 +26,7 @@ const Installments: React.FC<InstallmentsProps> = ({
     <S.Container data-testid={testId}>
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
-      <S.InstallmentsWrapper>
+      <S.InstallmentsWrapper data-testid={`${testId}-cards-wrapper`}>
         {installmentsMap}
       </S.InstallmentsWrapper>
     </S.Container>

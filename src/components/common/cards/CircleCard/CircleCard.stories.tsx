@@ -10,8 +10,8 @@ type Story = StoryObj<typeof meta>;
 const Template = {
   args: {
     testId: 'generated',
-    label: 'Default label',
-    image: '',
+    label: 'Generated Component',
+    image: '/assets/roofs/slab.png',
     selected: false
   }
 } satisfies Story;

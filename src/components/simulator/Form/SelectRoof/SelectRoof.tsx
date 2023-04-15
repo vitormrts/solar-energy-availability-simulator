@@ -8,7 +8,7 @@ const cards = [
   {
     id: 'fibrocimento-madeira',
     label: 'Fibrocimento Madeira',
-    image: '/assets/roofs/wood-fiber-ciment.png'
+    image: '/assets/roofs/wood-fiber-ciment.jpg'
   },
   {
     id: 'fibrocimento-metalico',

@@ -1,18 +1,18 @@
 import validators from './validators';
 
 describe('Required validators Util', () => {
-  it('should return false if required is valid', () => {
-    const output = validators.required('test');
+  it('should return false if is not empty', () => {
+    const output = validators.empty('test');
     expect(output).toBe(false);
   });
 
-  it('should return true if required is invalid', () => {
-    const output = validators.required('');
+  it('should return true if is empty', () => {
+    const output = validators.empty('');
     expect(output).toBe(true);
   });
 
-  it('should return true if required is has only space (invalid)', () => {
-    const output = validators.required(' ');
+  it('should return true if has only space (empty)', () => {
+    const output = validators.empty(' ');
     expect(output).toBe(true);
   });
 });

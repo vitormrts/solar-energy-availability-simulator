@@ -56,6 +56,8 @@ export const Field = styled.input<FieldStyleProps>`
     height: 100%;
     padding: 8px;
     width: 100%;
+    font-size: 16px;
+    line-height: 19px;
     &::placeholder {
       color: ${theme.colors.feedback.cancelled.dark};
     }
@@ -68,15 +70,18 @@ export const Field = styled.input<FieldStyleProps>`
       display: none;
       visibility: hidden !important;
     }
-
     @media (max-width: ${theme.breakpoints.md}) {
       height: 42px;
+      font-size: 14px;
+      line-height: 17px;
     }
   `}
 `;
 
 export const FeedbackLabel = styled.p<FeedbackLabelProps>`
   ${({ $status }) => css`
+    font-size: 12px;
+    line-height: 14px;
     margin-top: 8px;
     width: 100%;
     ${variantStatusStyles($status)}
@@ -88,11 +93,21 @@ export const InfoText = styled(FeedbackLabel)`
     color: ${theme.colors.neutral.low.dark};
     font-size: 11px;
     line-height: 14px;
+    @media (max-width: ${theme.breakpoints.md}) {
+      font-size: 10px;
+      line-height: 12px;
+    }
   `}
 `;
 
 export const Label = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.neutral.low.dark};
+    font-size: 16px;
+    line-height: 19px;
+    @media (max-width: ${theme.breakpoints.md}) {
+      font-size: 14px;
+      line-height: 17px;
+    }
   `}
 `;

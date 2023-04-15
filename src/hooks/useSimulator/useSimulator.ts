@@ -4,16 +4,17 @@ import { type Keys } from './useSimulator.types';
 import { validators } from '@src/utils';
 import { solarServices } from '@src/infra/services';
 import { type Structures } from '@src/types/solar.types';
+import { toast } from 'react-toastify';
 
 const useSimulator = () => {
   const defaultFormState = useMemo(
     () => ({
       zipCode: {
-        value: '11750-000',
+        value: '',
         errorMessage: ''
       },
       accountValue: {
-        value: '11000',
+        value: '',
         errorMessage: ''
       },
       structure: {
@@ -29,14 +30,14 @@ const useSimulator = () => {
   const validateField = (key: Keys, value: string) => {
     const rules = {
       zipCode: validators.zipCode(value),
-      structure: validators.required(value),
-      accountValue: validators.required(value)
+      structure: !validators.empty(value),
+      accountValue: !validators.empty(value) && !(Number(value) === 0)
     };
 
     const errorMessages = {
-      zipCode: 'Erro zipcode',
-      structure: 'Erro structure',
-      accountValue: 'Erro account value'
+      zipCode: 'Insira um CEP válido',
+      structure: 'Selecione uma estrutura',
+      accountValue: 'Insira um valor de conta válido'
     };
 
     const isValid = rules[key];
@@ -62,22 +63,28 @@ const useSimulator = () => {
     event.preventDefault();
 
     setLoading(true);
-    try {
-      const params = {
-        accountValue: formData.accountValue.value,
-        zipCode: formData.zipCode.value,
-        structure: formData.structure.value as Structures
-      };
-      const { data } = await solarServices.get.energyFeasibility(params);
-      return data;
-    } catch (error: any) {
+    const params = {
+      accountValue: formData.accountValue.value,
+      zipCode: formData.zipCode.value,
+      structure: formData.structure.value as Structures
+    };
+    const { data, success } = await solarServices.get.energyFeasibility(params);
+    setLoading(false);
 
-    } finally {
-      setLoading(false);
+    if (!success) {
+      toast.error('Ocorreu um erro ao buscar a viabilidade de energia solar. Tente novamente.');
     }
+    return data;
+  };
+
+  const allowedToContinue = () => {
+    const keys: Keys[] = ['accountValue', 'structure', 'zipCode'];
+    const hasError = keys.find((key) => validateField(key, formData[key].value));
+    return !hasError;
   };
 
   return {
+    allowedToContinue,
     formData,
     getEnergyFeasibility,
     loading,

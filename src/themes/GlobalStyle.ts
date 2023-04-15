@@ -13,17 +13,13 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   
-  html {
-    font-family: 'Poppins', sans-serif;
-  }
-
   body {
     background-color: #fafafa;
   }
   
   
   html, body {
-    font-family: Galano, Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
   }

@@ -6,6 +6,7 @@ module.exports = {
     name: "@storybook/react-webpack5",
     options: {}
   },
+  staticDirs: ['../public'],
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-essentials",
