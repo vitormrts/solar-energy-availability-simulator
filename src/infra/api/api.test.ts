@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import api from './api';
 
-describe('api', () => {
+describe('api - Infra', () => {
   it('should request get correctly', async () => {
     const mockUrl = 'https://api.test.com/test';
     const mockAdapter = new MockAdapter(api.instance);

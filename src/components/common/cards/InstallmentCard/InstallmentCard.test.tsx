@@ -8,4 +8,14 @@ describe('InstallmentCard Component', () => {
     renderWith(<InstallmentCard />);
     expect(screen.getByTestId('installment-card')).toBeInTheDocument();
   });
+
+  it('should render with intallment correctly', () => {
+    renderWith(<InstallmentCard installment={12} minTax={0.1} />);
+    expect(screen.getByTestId('min-tax')).toBeInTheDocument();
+  });
+
+  it('should render without intallment correctly', () => {
+    renderWith(<InstallmentCard installment={1} minTax={0} />);
+    expect(screen.queryByTestId('min-tax')).not.toBeInTheDocument();
+  });
 });

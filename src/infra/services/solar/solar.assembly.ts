@@ -1,6 +1,6 @@
 import { type ParsedSolarFeasibilityData, type RawSolarFeasibilityData } from '@src/types/solar.types';
 
-const parseSolarFeasibilityData = (rawData: RawSolarFeasibilityData): ParsedSolarFeasibilityData => {
+const parseSolarFeasibilityData = (rawData: RawSolarFeasibilityData | null): ParsedSolarFeasibilityData => {
   const installments = rawData?.parcelamento?.map((installment) => ({
     installment: installment.parcelas,
     minTax: installment.taxa_minina,
@@ -10,14 +10,14 @@ const parseSolarFeasibilityData = (rawData: RawSolarFeasibilityData): ParsedSola
   }));
 
   return {
-    carbonDioxide: rawData?.co2,
-    potential: rawData?.potencial,
-    economy: rawData?.economia,
-    installments,
-    potencyCC: rawData?.potencyCC,
-    installationValue: rawData?.valor_instalacao,
-    inverters: rawData?.qtdeInversores,
-    integrators: rawData?.integradores_regiao
+    carbonDioxide: rawData?.co2 || 0,
+    potential: rawData?.potencial || '',
+    economy: rawData?.economia || 0,
+    installments: installments || [],
+    potencyCC: rawData?.potencyCC || 0,
+    installationValue: rawData?.valor_instalacao || 0,
+    inverters: rawData?.qtdeInversores || 0,
+    integrators: rawData?.integradores_regiao || 0
   };
 };
 

@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { type Keys } from './useSimulator.types';
 import { validators } from '@src/utils';
 import { solarServices } from '@src/infra/services';
+import { type Structures } from '@src/types/solar.types';
 
 const useSimulator = () => {
   const defaultFormState = useMemo(
@@ -65,10 +66,10 @@ const useSimulator = () => {
       const params = {
         accountValue: formData.accountValue.value,
         zipCode: formData.zipCode.value,
-        structure: formData.structure.value
+        structure: formData.structure.value as Structures
       };
-      const result = await solarServices.get.energyFeasibility(params);
-      return result;
+      const { data } = await solarServices.get.energyFeasibility(params);
+      return data;
     } catch (error: any) {
 
     } finally {

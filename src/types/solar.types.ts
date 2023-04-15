@@ -1,5 +1,7 @@
+export type Structures = 'fibrocimento-madeira' | 'fibrocimento-metalico' | 'ceramico' | 'metalico' | 'laje' | 'solo'
+
 export interface GetSolarFeasibilityProps {
-  structure: string
+  structure: Structures
   accountValue: string
   zipCode: string
 }
