@@ -30,6 +30,7 @@ const SimulatorHandler: React.FC<SimulatorHandlerProps> = ({ testId = 'simulator
           onSubmit={handleOnSubmit}
         />
       </S.FormSection>
+      {loading && <S.LoadingLabel>Carregando...</S.LoadingLabel>}
       {solarFeasibilityData && (
         <>
           <S.SimulatorResultSection id="simulator-result-section">

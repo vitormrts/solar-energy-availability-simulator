@@ -25,3 +25,14 @@ export const SimulatorResultSection = styled(DefaultSection)`
 `;
 
 export const InstallmentsSection = styled(DefaultSection)``;
+
+export const LoadingLabel = styled.p`
+    ${({ theme }) => css`
+        color: ${theme.colors.brand.primary.pure};
+        font-size: 20px;
+        font-weight: 500;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 60px;
+    `}
+`;
