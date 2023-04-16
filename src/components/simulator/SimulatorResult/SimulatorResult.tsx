@@ -5,15 +5,13 @@ import { IconCard } from '@src/components/common';
 import { currency } from '@src/utils';
 
 const SimulatorResult: React.FC<SimulatorResultProps> = ({
-  title = 'Default title',
-  description = 'Default description',
   testId = 'simulator-result',
   results
 }: SimulatorResultProps) => {
   return (
     <S.Container data-testid={testId}>
-      <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
+      <S.Title>Economize na conta de luz com energia solar conosco</S.Title>
+      <S.Description>Confira abaixo os resultados da simulação e descubra se a instalação de um sistema de energia solar é viável para sua residência. Analise a produção estimada de energia, os custos e benefícios esperados e comece a economizar na conta de energia elétrica agora mesmo!</S.Description>
       <S.CardsWrapper>
         <IconCard
           title='Você investe'

@@ -4,8 +4,6 @@ import * as S from './Installments.style';
 import { InstallmentCard } from '@src/components/common';
 
 const Installments: React.FC<InstallmentsProps> = ({
-  title = 'Default title',
-  description = 'Default description',
   testId = 'installments',
   installments = []
 }: InstallmentsProps) => {
@@ -24,8 +22,8 @@ const Installments: React.FC<InstallmentsProps> = ({
 
   return (
     <S.Container data-testid={testId}>
-      <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
+      <S.Title>Parcelamento sem complicação</S.Title>
+      <S.Description>Confira abaixo nossas opções de parcelamento e encontre a que melhor se adapta às suas necessidades. Com taxas mínimas e valores acessíveis, nosso parcelamento é a forma mais fácil e prática de realizar suas compras na nossa loja.</S.Description>
       <S.InstallmentsWrapper data-testid={`${testId}-cards-wrapper`}>
         {installmentsMap}
       </S.InstallmentsWrapper>

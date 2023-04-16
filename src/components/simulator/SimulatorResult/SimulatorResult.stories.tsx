@@ -9,8 +9,7 @@ const meta = {
 type Story = StoryObj<typeof meta>;
 const Template = {
   args: {
-    testId: 'generated',
-    title: 'Generated Component'
+    testId: 'generated'
   }
 } satisfies Story;
 

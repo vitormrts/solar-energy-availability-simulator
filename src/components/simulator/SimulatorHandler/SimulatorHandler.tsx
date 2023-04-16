@@ -28,18 +28,10 @@ const SimulatorHandler: React.FC<SimulatorHandlerProps> = ({ testId = 'simulator
       {solarFeasibilityData && (
         <>
           <S.SimulatorResultSection>
-            <SimulatorResult
-              title="Economize na conta de luz com energia solar conosco"
-              description="Confira abaixo os resultados da simulação e descubra se a instalação de um sistema de energia solar é viável para sua residência. Analise a produção estimada de energia, os custos e benefícios esperados e comece a economizar na conta de energia elétrica agora mesmo!"
-              results={solarFeasibilityData}
-            />
+            <SimulatorResult results={solarFeasibilityData} />
           </S.SimulatorResultSection>
           <S.InstallmentsSection>
-            <Installments
-              title="Parcelamento sem complicação"
-              description="Confira abaixo nossas opções de parcelamento e encontre a que melhor se adapta às suas necessidades. Com taxas mínimas e valores acessíveis, nosso parcelamento é a forma mais fácil e prática de realizar suas compras na nossa loja."
-              installments={solarFeasibilityData?.installments}
-            />
+            <Installments installments={solarFeasibilityData?.installments} />
           </S.InstallmentsSection>
         </>
       )}

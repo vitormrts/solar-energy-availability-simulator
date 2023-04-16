@@ -10,7 +10,7 @@ type Story = StoryObj<typeof meta>;
 const Template = {
   args: {
     testId: 'generated',
-    selectedRoof: 'ceramica'
+    selectedRoof: 'ceramico'
   }
 } satisfies Story;
 
