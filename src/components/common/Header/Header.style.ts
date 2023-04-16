@@ -8,6 +8,10 @@ export const Header = styled.header`
     display: flex;
     justify-content: center;
     min-height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
   `}
 `;
 

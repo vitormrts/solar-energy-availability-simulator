@@ -27,7 +27,7 @@
     "build": "craco build",
     "test": "jest --maxWorkers=2",
     "eject": "craco eject",
-    "start-storybook": "yarn && yarn storybook init",
+    "start-storybook": "yarn storybook dev",
     "generate": "yarn plop --plopfile ./generators/plop/plop.js"
   },
   "browserslist": {

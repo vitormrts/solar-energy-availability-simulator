@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Solar Energy Availability Simulator
+The Solar Energy Availability Simulator is a React.js project that uses data from a solar irradiance API to assess the availability of solar energy in a given region. The simulator provides an estimate of the amount of solar energy available in the region, allowing users to get an idea of the potential for solar energy generation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Technologies
+The Solar Energy Availability Simulator was developed using the following technologies:
 
-## Available Scripts
+- TypeScript: to ensure greater security and productivity in development, with static typing and support for ES6+.
+- React: to build the user interface, making it easier to manipulate components and states.
+- Styled Components: for more efficient and organized component styling.
+- Jest: to write and execute unit tests, ensuring better code quality and preventing errors.
+- Storybook: to document and visualize components, facilitating teamwork and code maintenance.
 
-In the project directory, you can run:
+## 🏗️ Prerequisites
+Before you start, make sure you have the following requirements:
 
-### `yarn start`
+- yarn (v1.22.19 or higher)
+- GIT (v2.25.1 or higher)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 👷‍♂️ Installation
+To install the dependencies, run the following command:
+```
+yarn
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ⚙️ API Configuration
+Before running the project, it is necessary to configure the solar irradiance API. To do this, create a .env.local file at the root of the project and add the following environment variable:
 
-### `yarn test`
+```
+REACT_APP_API_URL=<API URL>
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Replace <API URL> with your API URL.
 
-### `yarn build`
+## 💻 Running the project
+To run the project, run the following command:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This will start the project in development mode. Open http://localhost:3000 in your browser to view it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ❤️ Features
+The Solar Energy Availability Simulator has the following features:
 
-### `yarn eject`
+- Simulation of solar energy availability based on zip code, average energy consumption (R$), and roof type;
+- Presentation of results informing the investment amount, how much is saved, the total number of inverters and integrators in the region;
+- Presentation of values for installment payments.
+## 📔 StoryBook
+To use StoryBook, run the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn start-storybook
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✔️ Available Commands
+```
+# Install dependencies
+yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Run tests
+yarn test
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Build project
+yarn build
 
-## Learn More
+# Start project (development)
+yarn start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Create components and utils
+yarn generate
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Start Storybook
+yarn start-storybook
+```
+
+## 🤝 How to Contribute
+If you wish to contribute to the project, follow the instructions below:
+
+Fork this repository;
+- Create a new branch with your changes: `git checkout -b my-branch`;
+- Make desired changes and commit them: `git commit -m 'my changes'`;
+- Push your changes to the main branch: `git push origin my-branch`;
+- Open a Pull Request for your changes to be reviewed.

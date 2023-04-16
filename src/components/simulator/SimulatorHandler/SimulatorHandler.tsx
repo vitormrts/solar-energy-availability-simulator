@@ -4,6 +4,7 @@ import * as S from './SimulatorHandler.style';
 import { useSimulator } from '@src/hooks';
 import { Form, Installments, SimulatorResult } from '@src/components/simulator';
 import { type ParsedSolarFeasibilityData } from '@src/types/solar.types';
+import { scrollTo } from '@src/utils';
 
 const SimulatorHandler: React.FC<SimulatorHandlerProps> = ({ testId = 'simulator-handler' }: SimulatorHandlerProps) => {
   const [solarFeasibilityData, setSolarFeasibilityData] = useState<ParsedSolarFeasibilityData | null>();
@@ -12,10 +13,14 @@ const SimulatorHandler: React.FC<SimulatorHandlerProps> = ({ testId = 'simulator
   const handleOnSubmit = useCallback(async (event: React.FormEvent) => {
     const solarFeasibilityData = await getEnergyFeasibility(event);
     setSolarFeasibilityData(solarFeasibilityData);
+    setTimeout(() => {
+      scrollTo({ elementId: 'simulator-result-section', offsetTop: 80 });
+    }, 100);
   }, [getEnergyFeasibility]);
 
   return (
     <S.Container data-testid={testId}>
+      <S.Title>Simulador de energia solar</S.Title>
       <S.FormSection>
         <Form
           allowedToContinue={allowedToContinue()}
@@ -27,7 +32,7 @@ const SimulatorHandler: React.FC<SimulatorHandlerProps> = ({ testId = 'simulator
       </S.FormSection>
       {solarFeasibilityData && (
         <>
-          <S.SimulatorResultSection>
+          <S.SimulatorResultSection id="simulator-result-section">
             <SimulatorResult results={solarFeasibilityData} />
           </S.SimulatorResultSection>
           <S.InstallmentsSection>
