@@ -28,7 +28,8 @@
     "test": "jest --maxWorkers=2",
     "eject": "craco eject",
     "start-storybook": "yarn storybook dev",
-    "generate": "yarn plop --plopfile ./generators/plop/plop.js"
+    "generate": "yarn plop --plopfile ./generators/plop/plop.js",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'"
   },
   "browserslist": {
     "production": [

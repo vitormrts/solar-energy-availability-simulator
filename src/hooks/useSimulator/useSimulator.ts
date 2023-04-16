@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useMemo, useState } from 'react';
-import { type Keys } from './useSimulator.types';
+import { type UseSimulator, type FormData, type Keys } from './useSimulator.types';
 import { validators } from '@src/utils';
 import { solarServices } from '@src/infra/services';
-import { type Structures } from '@src/types/solar.types';
+import { type ParsedSolarFeasibilityData, type Structures } from '@src/types/solar.types';
 import { toast } from 'react-toastify';
 
-const useSimulator = () => {
+const useSimulator = (): UseSimulator => {
   const defaultFormState = useMemo(
-    () => ({
+    (): FormData => ({
       zipCode: {
         value: '',
         errorMessage: ''
@@ -25,9 +24,9 @@ const useSimulator = () => {
     []
   );
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState(defaultFormState);
+  const [formData, setFormData] = useState<FormData>(defaultFormState);
 
-  const validateField = (key: Keys, value: string) => {
+  const validateField = (key: Keys, value: string): string => {
     const rules = {
       zipCode: validators.zipCode(value),
       structure: !validators.empty(value),
@@ -44,7 +43,7 @@ const useSimulator = () => {
     return isValid ? '' : errorMessages[key];
   };
 
-  const onChange = (key: Keys, value: string) => {
+  const onChange = (key: Keys, value: string): FormData => {
     let newFormData = { ...formData };
 
     newFormData = {
@@ -59,27 +58,25 @@ const useSimulator = () => {
     return newFormData;
   };
 
-  const getEnergyFeasibility = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const getEnergyFeasibility = async (event?: React.FormEvent): Promise<ParsedSolarFeasibilityData | undefined> => {
+    event?.preventDefault();
 
     setLoading(true);
     const params = {
-      accountValue: formData.accountValue.value,
+      accountValue: formData.accountValue.value as string,
       zipCode: formData.zipCode.value,
       structure: formData.structure.value as Structures
     };
     const { data, success } = await solarServices.get.energyFeasibility(params);
     setLoading(false);
 
-    if (!success) {
-      toast.error('Ocorreu um erro ao buscar a viabilidade de energia solar. Tente novamente.');
-    }
+    !success && toast.error('Ocorreu um erro ao buscar a viabilidade de energia solar. Tente novamente.');
     return data;
   };
 
-  const allowedToContinue = () => {
+  const allowedToContinue = (): boolean => {
     const keys: Keys[] = ['accountValue', 'structure', 'zipCode'];
-    const hasError = keys.find((key) => validateField(key, formData[key].value));
+    const hasError = keys.find((key) => validateField(key, formData[key]?.value || ''));
     return !hasError;
   };
 
@@ -88,9 +85,7 @@ const useSimulator = () => {
     formData,
     getEnergyFeasibility,
     loading,
-    onChange,
-    registerModalFormData: formData,
-    setFormData
+    onChange
   };
 };
 

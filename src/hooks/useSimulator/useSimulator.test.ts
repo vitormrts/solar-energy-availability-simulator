@@ -1,4 +1,7 @@
+import { fake } from '@src/devUtils';
+import { api } from '@src/infra/api';
 import { renderHook } from '@testing-library/react';
+import MockAdapter from 'axios-mock-adapter';
 import type React from 'react';
 import { act } from 'react-dom/test-utils';
 import useSimulator from './useSimulator';
@@ -23,7 +26,7 @@ const mockData = {
 };
 
 describe('useSimulator - Hook', () => {
-  it('should receive form data', () => {
+  it('should receive form data correctly', () => {
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
@@ -32,7 +35,7 @@ describe('useSimulator - Hook', () => {
     expect(instance.formData).toMatchObject(mockData);
   });
 
-  it('should receive onChange with error', () => {
+  it('should receive onChange with error correctly', () => {
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
@@ -53,7 +56,7 @@ describe('useSimulator - Hook', () => {
     });
   });
 
-  it('should receive onChange without error', () => {
+  it('should receive onChange without error correctly', () => {
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
@@ -74,7 +77,7 @@ describe('useSimulator - Hook', () => {
     });
   });
 
-  it('should receive allowedToContinue', () => {
+  it('should receive allowedToContinue correctly', () => {
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
@@ -82,7 +85,7 @@ describe('useSimulator - Hook', () => {
     expect(instance.allowedToContinue()).toBe(false);
   });
 
-  it('should receive loading', () => {
+  it('should receive loading correctly', () => {
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
@@ -90,13 +93,19 @@ describe('useSimulator - Hook', () => {
     expect(instance.loading).toBe(false);
   });
 
-  it('should submit', () => {
+  it('should submit correctly', async () => {
+    const mockAdapter = new MockAdapter(api.instance);
+    const mockResponse = fake.rawSolarFeasibilityData;
+    mockAdapter.onGet().reply(200, mockResponse);
+
     const { result } = renderHook(() => useSimulator(), {
       wrapper: Provider
     });
     const instance = result.current;
-    const handleSubmit = async (event: React.FormEvent) => await instance.getEnergyFeasibility(event);
 
-    expect(handleSubmit).toEqual(expect.any(Function));
+    await act(async () => {
+      const handleSubmit = await instance.getEnergyFeasibility();
+      expect(handleSubmit).toMatchObject(fake.parsedSolarFeasibilityData);
+    });
   });
 });

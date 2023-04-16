@@ -1,4 +1,4 @@
-export type ScrollToParams = {
-  elementId: string;
-  offsetTop?: number;
-};
+export interface ScrollToParams {
+  elementId: string
+  offsetTop?: number
+}
