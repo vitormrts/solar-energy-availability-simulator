@@ -1,7 +1,7 @@
 # Solar Energy Availability Simulator
 The Solar Energy Availability Simulator is a React.js project that uses data from a solar irradiance API to assess the availability of solar energy in a given region. The simulator provides an estimate of the amount of solar energy available in the region, allowing users to get an idea of the potential for solar energy generation.
 
-Deploy link: https://case-77sol.vercel.app/
+Deploy link: https://solar-simulator.vercel.app/
 
 ## 🚀 Technologies
 The Solar Energy Availability Simulator was developed using the following technologies:
